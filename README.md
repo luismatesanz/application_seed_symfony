@@ -1,7 +1,7 @@
 Symfony Seed Application
 =====================
 
-Init project WEB + API + ADMIN. 
+Project Seed Symfony 3 starter for WEB + API + ADMIN. 
 
 With Bundles:
 - FOSRestBundle
@@ -42,3 +42,20 @@ AppBundle is a bundle by default application configure.
 You must create bundle by each entity in your domain model with the same structure in BlogBundle. You can add logic by bundle to Web, API and Admin.
 
 The layer Handler is your folder for bussiness logic.
+
+
+Routes
+-------------
+
+- / is a route for web application.
+- /admin is a route for admin application.
+- /api is a route for api application.
+- /api/doc is a route for your api swagger documentation.
+
+
+API
+-------------
+
+- You can get only fields you want with query param fields. Example:
+
+        /api/blogs?fields=date,title
