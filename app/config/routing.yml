@@ -1,6 +1,11 @@
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+
+# ==========================================================
 # CONFIG GENERIC APPLICATION
+# ==========================================================
 index:
-    resource: '@AppBundle/Controller/'
+    resource: "@AppBundle/Controller/"
     type: annotation
 
 api_user_security_login:
@@ -20,6 +25,3 @@ easy_admin_bundle:
     type:     annotation
     prefix:   /admin
 
-# BUNDLES
-blog:
-    resource: '@BlogBundle/Resources/config/routing.yml'

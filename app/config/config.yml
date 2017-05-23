@@ -2,8 +2,10 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@BlogBundle/Resources/config/config.yml" }
+    - { resource: "@AppBundle/Resources/config/admin.yml" }
+    - { resource: "@BlogBundle/Resources/config/admin.yml" }
     - { resource: "@BlogBundle/Resources/config/services.yml" }
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -147,11 +149,3 @@ jms_serializer:
         separator:
         lower_case: false
 
-easy_admin:
-    entities:
-        User:
-            class: AppBundle\Entity\User
-            label: 'Usuarios'
-            list:
-                title: "Listado de usuarios"
-                max_results: 30

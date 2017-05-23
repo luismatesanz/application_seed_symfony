@@ -43,6 +43,23 @@ You must create bundle by each entity in your domain model with the same structu
 
 The layer Handler is your folder for bussiness logic.
 
+Bundles Installation
+-------------
+
+- Generate Bundle.
+        
+        bin/console generate:bundle
+
+- Add routing to app/routing.yml (command generate automatically).
+
+        blog:
+            resource: "@BlogBundle/Resources/config/routing.yml"
+
+- Add imports to app/config.yml (command generate automatically).
+
+        imports:
+            - { resource: "@BlogBundle/Resources/config/admin.yml" }
+            - { resource: "@BlogBundle/Resources/config/services.yml" }
 
 Routes
 -------------
