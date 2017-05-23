@@ -1,4 +1,4 @@
-# CONFIG
+# CONFIG GENERIC APPLICATION
 index:
     resource: '@AppBundle/Controller/'
     type: annotation
