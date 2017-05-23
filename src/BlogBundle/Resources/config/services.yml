@@ -1,0 +1,4 @@
+services:
+  handler.blog:
+      class: BlogBundle\Handler\BlogHandler
+      arguments: ["@=service('doctrine.orm.entity_manager').getRepository('BlogBundle:Blog')"]

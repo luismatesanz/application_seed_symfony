@@ -1,0 +1,8 @@
+easy_admin:
+    entities:
+        Blog:
+            class: BlogBundle\Entity\Blog
+            label: 'Blog'
+            list:
+                title: "Listado de posts"
+                max_results: 30

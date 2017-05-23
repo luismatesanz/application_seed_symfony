@@ -1,0 +1,25 @@
+# CONFIG
+index:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+api_user_security_login:
+    path:      /api/login
+    defaults:  { _controller: FOSUserBundle:Security:check }
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+admin_login:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix:   /admin
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin
+
+# BUNDLES
+blog:
+    resource: '@BlogBundle/Resources/config/routing.yml'

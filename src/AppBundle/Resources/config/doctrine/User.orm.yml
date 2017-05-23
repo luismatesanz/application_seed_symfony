@@ -1,0 +1,9 @@
+# src/AppBundle/Resources/config/doctrine/User.orm.yml
+AppBundle\Entity\User:
+    type:  entity
+    table: user
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO

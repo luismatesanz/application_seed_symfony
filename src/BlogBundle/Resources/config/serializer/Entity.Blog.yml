@@ -1,0 +1,5 @@
+BlogBundle\Entity\Blog:
+  expose: ALL
+  properties:
+      dateCreation:
+        exclude: true

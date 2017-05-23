@@ -1,0 +1,9 @@
+blog_web:
+  resource: BlogBundle\Controller\BlogWebController
+  type:     annotation
+  prefix: blog
+
+blog_api:
+  resource: BlogBundle\Controller\BlogAPIController
+  type:     rest
+  prefix: /api/

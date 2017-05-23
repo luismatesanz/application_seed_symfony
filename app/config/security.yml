@@ -1,0 +1,78 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+        in_memory:
+            memory: ~
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+            pattern:  ^/api/login
+            stateless: true
+            anonymous: true
+            provider: fos_userbundle
+            form_login:
+                username_parameter:       username
+                password_parameter:       password
+                check_path:               api_user_security_login
+                success_handler:          lexik_jwt_authentication.handler.authentication_success
+                failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session: false
+
+        # DOC
+        doc_login:
+            pattern: ^/api/doc
+            provider: fos_userbundle
+            http_basic: ~
+            anonymous: ~
+
+        api:
+            pattern:   ^/api
+            stateless: true
+            provider: fos_userbundle
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+
+        admin:
+            pattern:   ^/admin
+            form_login:
+                check_path:               fos_user_security_check
+                login_path:               fos_user_security_login
+                provider:                 fos_userbundle
+                csrf_token_generator:     security.csrf.token_manager
+                default_target_path:      /admin
+                # if you are using Symfony < 2.8, use the following config instead:
+                # csrf_provider: form.csrf_provider
+            logout:
+                path: fos_user_security_logout
+                target: fos_user_security_login
+            anonymous:    true
+
+            # activate different ways to authenticate
+
+            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+    access_control:
+      - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+      - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+      - { path: ^/doc,       roles: IS_AUTHENTICATED_FULLY }
+      - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+      - { path: ^/admin/, role: IS_AUTHENTICATED_FULLY }
