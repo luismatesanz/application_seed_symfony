@@ -11,7 +11,7 @@ NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc
 
-admin_login:
+admin_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     prefix:   /admin
 
