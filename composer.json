@@ -25,6 +25,7 @@
         "doctrine/doctrine-cache-bundle": "^1.2",
         "doctrine/orm": "^2.5",
         "friendsofsymfony/rest-bundle": "^2.2",
+        "friendsofsymfony/user-bundle": "~2.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "javiereguiluz/easyadmin-bundle": "^1.16",
         "jms/serializer-bundle": "^2.0",
