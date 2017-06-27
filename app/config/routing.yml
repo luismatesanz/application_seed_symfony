@@ -12,6 +12,10 @@ api_user_security_login:
     path:      /api/login
     defaults:  { _controller: FOSUserBundle:Security:check }
 
+gesdinet_jwt_refresh_token:
+    path:     /api/token
+    defaults: { _controller: gesdinet.jwtrefreshtoken:refresh }
+
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc
