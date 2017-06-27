@@ -10,6 +10,7 @@ With Bundles:
 - NelmioAPIDocBundle
 - NelmioCorsBundle
 - LexikJWTAuthenticationBundle
+- GesdinetJWTRefreshTokenBundle
 - EasyAdminBundle
 
 API with JWT Authentication, messages only JSON and Serializer filter fields.
@@ -73,6 +74,25 @@ Routes
 API
 -------------
 
+- Login:
+    
+        /api/login (POST)
+        Body:
+            username: 
+            password:
+            
+- Refresh Token:
+    
+        /api/token
+        Params:
+            refresh_token: 
+            
+- Access API:
+    
+        /api/{ENDPOINT}
+        Params:
+            Authorization: Bearer +{TOKEN}
+    
 - You can get only fields you want with query param fields. Example:
 
         /api/blogs?fields=date,title
