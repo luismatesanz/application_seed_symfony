@@ -90,7 +90,7 @@ API
 - Access API:
     
         /api/{ENDPOINT}
-        Params:
+        Headers:
             Authorization: Bearer +{TOKEN}
     
 - You can get only fields you want with query param fields. Example:
