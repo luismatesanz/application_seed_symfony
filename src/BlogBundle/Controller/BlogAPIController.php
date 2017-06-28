@@ -4,7 +4,8 @@ namespace BlogBundle\Controller;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
-use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Handler\BlogHandler;
 
@@ -25,14 +26,18 @@ class BlogAPIController extends FOSRestController
      * @Rest\QueryParam(name="fields", description="Filter fields with comma", default=null )
      * @Rest\QueryParam(name="page", description="Page", default=1 )
      * @Rest\QueryParam(name="limit", description="Limit rows per page", default=30 )
-     * @ApiDoc(
-     *   resource = true,
-     *   output = "AppBundle\Entity\Blog",
-     *   statusCodes = {
-     *     200 = "Returned when successful",
-     *     404 = "Returned when the page is not found"
-     *   }
+     * @SWG\Tag(name="blogs")
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns the rewards of an user",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @Model(type=Blog::class, groups={"full"})
+     *     )
      * )
+     * @SWG\Parameter(name="fields", in="query",  type="string",description="Filter fields with comma")
+     * @SWG\Parameter(name="page",in="query",type="integer",description="Filter page")
+     * @SWG\Parameter(name="limit", in="query", type="integer", description="Filter page")
      */
     public function getBlogsAction(Request $request, int $page, int $limit, string $fields)
     {
@@ -49,13 +54,10 @@ class BlogAPIController extends FOSRestController
      *
      * @Rest\View()
      * @Rest\QueryParam(name="fields", description="Filter fields with comma", default=null )
-     * @ApiDoc(
-     *   resource = true,
-     *   output = "AppBundle\Entity\Blog",
-     *   statusCodes = {
-     *     200 = "Returned when successful",
-     *     404 = "Returned when the page is not found"
-     *   }
+     * @SWG\Tag(name="blogs")
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns the rewards of an user",
      * )
      */
     public function getBlogAction(int $id, string $fields)

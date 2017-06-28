@@ -16,8 +16,8 @@ gesdinet_jwt_refresh_token:
     path:     /api/token
     defaults: { _controller: gesdinet.jwtrefreshtoken:refresh }
 
-NelmioApiDocBundle:
-    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+app.swagger_ui:
+    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
     prefix:   /api/doc
 
 admin_user_security:

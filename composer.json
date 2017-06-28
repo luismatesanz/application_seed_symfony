@@ -31,7 +31,7 @@
         "jms/serializer-bundle": "^2.0",
         "lexik/jwt-authentication-bundle": "^2.4",
         "gesdinet/jwt-refresh-token-bundle": "~0.1",
-        "nelmio/api-doc-bundle": "^2.13",
+        "nelmio/api-doc-bundle": "^3.0",
         "nelmio/cors-bundle": "^1.5",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",

@@ -100,12 +100,14 @@ fos_user:
         sender_name: "%mailer_user%"
 
 nelmio_api_doc:
-    name: 'API documentation'
-    sandbox:
-        enabled: false
-    cache:
-        enabled:  true
-        file:  '%kernel.cache_dir%/api-doc.cache'
+    documentation:
+        info:
+            title: API documentation
+            description: Documentation.
+            version: 1.0.0
+    routes:
+        path_patterns: # an array of regexps
+            - ^/api
 
 nelmio_cors:
     defaults:
